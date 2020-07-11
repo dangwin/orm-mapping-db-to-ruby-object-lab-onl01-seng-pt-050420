@@ -11,8 +11,6 @@ class Student
 
   def self.all
      sql = <<-SQL
-    # remember each row should be a new instance of the Student class	    SELECT * 
-    FROM students 
     SQL
     DB[:conn].execute(sql).collect do |row|
       self.new_from_db(row)
