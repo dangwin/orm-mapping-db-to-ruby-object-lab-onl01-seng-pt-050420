@@ -77,6 +77,14 @@ end
     end
   end
   
-  
+  def self.all
+    # retrieve all the rows from the "Students" database	    sql = <<-SQL
+    # remember each row should be a new instance of the Student class	    SELECT * 
+    FROM students 
+    SQL
+    DB[:conn].execute(sql).collect do |row|
+      self.new_from_db(row)
+    end
+  end	  end
   
 end
