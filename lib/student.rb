@@ -79,6 +79,7 @@ end
   
   def self.all
  sql = <<-SQL
+ SELECT*
     SQL
     DB[:conn].execute(sql).collect do |row|
       self.new_from_db(row)
